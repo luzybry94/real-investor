@@ -18,3 +18,8 @@ Confirm
 - [ ] Your commit messages are meaningful
 - [ ] You made the changes in a commit that relate to the commit message
 - [ ] You don't include changes in a commit that aren't related to the commit message
+
+Futures
+- [ ] Change image to upload function (binary) instaed of url string
+- [ ] Change date from string to date and add calendar pop up function
+- [ ] Add investors/financiers model (has many users and properties)
