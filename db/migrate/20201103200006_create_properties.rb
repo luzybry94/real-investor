@@ -4,11 +4,11 @@ class CreateProperties < ActiveRecord::Migration
       t.string :address
       t.integer :price
       t.integer :sqft
-      t.integer :expenses
       t.string :image
       t.integer :score
-
-
+      t.string :date
+      t.text :notes
+      t.integer :user_id
       t.timestamps null: false
     end
   end
