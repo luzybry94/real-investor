@@ -1,0 +1,11 @@
+<h1>Potential Real Estate Investments:</h1>
+<br>
+
+<% @properties.each do |property| %>
+    <h2><a href="/properties/<%= property.id %>"><%= property.address %></a></h2>
+    <img src="<%= property.image %>" alt="property">
+    <p>Price: $<%= property.price %></p>
+    <p>Rating: <%= property.rating %></p>
+    <br>
+
+<% end %>

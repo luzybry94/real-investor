@@ -1,0 +1,9 @@
+<h1>Detail Page:</h1>
+
+<h2><%= @property.address %></h2>
+<img src="<%= @property.image %>" alt="property">
+<p>Price: $<%= @property.price %></p>
+<p>Sqft: <%= @property.sqft %></p>
+<p>Rating: <%= @property.rating %></p>
+<p>Notes: <%= @property.notes %></p>
+<p><i>Submitted: <%= @property.created_at.strftime("%m-%d-%Y") %></i></p>

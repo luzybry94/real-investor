@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 20201103200006) do
     t.integer  "price"
     t.integer  "sqft"
     t.string   "image"
-    t.integer  "score"
-    t.string   "date"
+    t.integer  "rating"
     t.text     "notes"
     t.integer  "user_id"
     t.datetime "created_at", null: false

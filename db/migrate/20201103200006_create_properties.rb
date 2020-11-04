@@ -5,8 +5,7 @@ class CreateProperties < ActiveRecord::Migration
       t.integer :price
       t.integer :sqft
       t.string :image
-      t.integer :score
-      t.string :date
+      t.integer :rating
       t.text :notes
       t.integer :user_id
       t.timestamps null: false
