@@ -1,0 +1,28 @@
+<h1>Edit Property</h1>
+
+<form action="/properties/<%= @property.id %>" method="post">
+ <input type="hidden" name="_method" value="patch">
+
+ <label for="address">*Address:</label>
+ <input type="text" id="address" name="property[address]" value="<%= @property.address %>">
+ <br><br>
+ <label for="price">*Price:</label>
+ <input type="number" id="price" name="property[price]" value="<%= @property.price %>">
+ <br><br>
+ <label for="sqft">Sqft:</label>
+ <input type="number" id="sqft" name="property[sqft]" value="<%= @property.sqft %>">
+ <br><br>
+ <label for="image">Image URL:</label>
+ <input type="text" id="image" name="property[image]" value="<%= @property.image %>">
+ <br><br>
+ <label for="rating">Rating 1-10:</label>
+ <input type="number" id="rating" name="property[rating]" value="<%= @property.rating %>">
+ <br><br>
+ <label for="notes">Notes:</label>
+ <textarea id="notes" name="property[notes]" rows="4" cols="50"><%= @property.notes %></textarea>
+ <br><br>
+ <p>*Required</p>
+ <br><br>
+ <input type="submit" value="Save">
+
+</form>
