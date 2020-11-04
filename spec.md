@@ -19,7 +19,15 @@ Confirm
 - [ ] You made the changes in a commit that relate to the commit message
 - [ ] You don't include changes in a commit that aren't related to the commit message
 
+TODOs
+- [ ] Create edit and destroy actions
+- [ ] Only allow logged in users to see index and show page
+- [ ] Only allow user who created listing to edit/delete
+- [ ] Associate user who created listing to the listing
+- [ ] Show only listings created by signed in user
+- [ ] Make sure user inputs required fields on property creation (and edit form)
+
 Futures
+- [ ] Replace @error messages/erb renderings in post routes with redirects and flash messages
 - [ ] Change image to upload function (binary) instaed of url string
-- [ ] Change date from string to date and add calendar pop up function
 - [ ] Add investors/financiers model (has many users and properties)

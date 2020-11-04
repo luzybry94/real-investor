@@ -7,3 +7,10 @@
 <p>Rating: <%= @property.rating %></p>
 <p>Notes: <%= @property.notes %></p>
 <p><i>Submitted: <%= @property.created_at.strftime("%m-%d-%Y") %></i></p>
+<a href="/properties/<%= @property.id %>/edit">Edit</a>
+<br><br>
+<form action="/properties/<%= @property.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>
+

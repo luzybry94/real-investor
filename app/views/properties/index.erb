@@ -1,5 +1,7 @@
 <h1>Potential Real Estate Investments:</h1>
-<br>
+
+<a href="/properties/new">Add New Property</a>
+<br><br>
 
 <% @properties.each do |property| %>
     <h2><a href="/properties/<%= property.id %>"><%= property.address %></a></h2>
