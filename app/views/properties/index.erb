@@ -4,10 +4,12 @@
 <br><br>
 
 <% @properties.each do |property| %>
+  <% if property.user_id == current_user.id %>
     <h2><a href="/properties/<%= property.id %>"><%= property.address %></a></h2>
     <img src="<%= property.image %>" alt="property">
     <p>Price: $<%= property.price %></p>
     <p>Rating: <%= property.rating %></p>
     <br>
+  <% end %>
 
 <% end %>

@@ -16,7 +16,9 @@
   <body>
 
     <% if logged_in? %>
-      
+      <a href="/logout">Log Out</a>
+      <br><br>
+      <a href="/users/<%= current_user.id %>">My Profile</a>
       
     <% end %>
 
