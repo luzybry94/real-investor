@@ -10,17 +10,18 @@
  <label for="price">*Price:</label>
  <input type="number" id="price" name="property[price]">
  <br><br>
+ <label for="image">*Image URL:</label>
+ <input type="text" id="image" name="property[image]">
+ <br><br>
  <label for="sqft">Sqft:</label>
  <input type="number" id="sqft" name="property[sqft]">
- <br><br>
- <label for="image">Image URL:</label>
- <input type="text" id="image" name="property[image]">
  <br><br>
  <label for="rating">Rating 1-10:</label>
  <input type="number" id="rating" name="property[rating]">
  <br><br>
  <label for="notes">Notes:</label>
  <textarea id="notes" name="property[notes]" rows="4" cols="50"></textarea>
+ <input type="hidden" name="property[user_id]" value="<%= current_user.id %>">
  <br><br>
  <p>*Required</p>
  <br><br>

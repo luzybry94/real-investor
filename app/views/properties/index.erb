@@ -1,10 +1,9 @@
 <h1>Potential Real Estate Investments:</h1>
 
-<a href="/properties/new">Add New Property</a>
-<br><br>
 
 <% @properties.each do |property| %>
   <% if property.user_id == current_user.id %>
+    <br><br>
     <h2><a href="/properties/<%= property.id %>"><%= property.address %></a></h2>
     <img src="<%= property.image %>" alt="property">
     <p>Price: $<%= property.price %></p>
