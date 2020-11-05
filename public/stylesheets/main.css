@@ -10,6 +10,7 @@
     height: 100%;
     width: 100%;
   }
+ 
 
   /* --- Welcome Page Styles --- */
   body {
@@ -18,6 +19,15 @@
     font-family: Sans-Serif;
     line-height: 18px;
   }
+
+  /* a {
+    color: red;
+    line-height: 1em;
+    display: inline-block;
+    text-decoration: none;
+    padding: 120px;
+    margin: 42px;
+} */
 
   .wrapper {
     background: #fff;
@@ -50,6 +60,8 @@
   p {
     margin-bottom: 18px;
   }
+
+
 
   .main {
     overflow: hidden;
@@ -112,4 +124,5 @@
     font-size: 18px;
     line-height: 24px;
   }
+
 }
