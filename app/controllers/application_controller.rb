@@ -7,10 +7,15 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, 'real_investor_secret'
+    register Sinatra::Flash
   end
 
   get "/" do
-    erb :welcome
+    if logged_in?
+      redirect '/properties'
+    else
+      erb :welcome
+    end
   end
 
   helpers do
