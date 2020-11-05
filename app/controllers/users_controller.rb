@@ -5,17 +5,14 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-      @user = User.new(params[:user])
-      if @user.name.empty? || @user.username.empty? || @user.password.empty?
-        @error = "Please fill in all fields"
-        erb :'users/signup'
-      elsif User.find_by(username: params[:user][:username])
-        @error = "Account with that username already exists"
-        erb :'users/signup'
+      user = User.new(params[:user])
+      if user.save
+        session[:user_id] = user.id
+        flash[:message] = "Welcome to Real Investor! You're gonna love it!"
+        redirect "/users/#{user.id}"
       else
-        @user.save
-        session[:user_id] = @user.id
-        redirect "/users/#{@user.id}"
+        flash[:error] = "Error: #{user.errors.full_messages.to_sentence}"
+        redirect '/signup'
       end
     end
 
