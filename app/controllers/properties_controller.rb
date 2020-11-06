@@ -58,7 +58,7 @@ class PropertiesController < ApplicationController
           redirect "/properties/#{@property.id}"
         else
           flash[:error] = "Please enter an address, price and image URL."
-          erb :'/properties/edit'
+          redirect "/properties/#{@property.id}/edit"
         end
 
     end
