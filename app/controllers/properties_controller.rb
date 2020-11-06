@@ -20,17 +20,21 @@ class PropertiesController < ApplicationController
     end
 
     get '/properties' do
-        @properties = Property.all
-        erb :'properties/index'
+        if logged_in?
+          @properties = Property.all
+          erb :'properties/index'
+        else
+          redirect '/'
+        end
     end
 
     get '/properties/:id' do
-        @property = Property.find(params[:id])
+        @property = Property.find_by(params[:id])
         if logged_in?
             if @property.user == current_user
                 erb :'properties/show'
             else
-                redirect "/properties/#{current_user.id}"
+                redirect '/properties'
             end
         else
           redirect '/'
