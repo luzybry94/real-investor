@@ -29,7 +29,7 @@ class PropertiesController < ApplicationController
     end
 
     get '/properties/:id' do
-        @property = Property.find_by(params[:id])
+        @property = Property.find_by(id: params[:id])
         if logged_in?
             if @property.user == current_user
                 erb :'properties/show'
