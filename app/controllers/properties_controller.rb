@@ -1,57 +1,40 @@
 class PropertiesController < ApplicationController
 
     get '/properties/new' do
-        if logged_in?
+        authenticated?
+          erb :'properties/new'
+    end
+
+    post '/properties' do
+       
+        @property = current_user.properties.build(params[:property])
+        # if !property.address.empty? && property.price != nil && !property.image.empty?
+        #   property.user = current_user
+        if @property.save
+            flash[:message] = "Listing Added!"
+          redirect '/properties'
+        else
+          @error = "Please enter an address, price and image URL."
           erb :'properties/new'
         end
     end
 
-    post '/properties' do 
-        property = Property.new(params[:property])
-        # if !property.address.empty? && property.price != nil && !property.image.empty?
-        #   property.user = current_user
-        if property.save
-            flash[:message] = "Listing Added!"
-          redirect '/properties'
-        else
-          flash[:error] = "Please enter an address, price and image URL."
-          redirect 'properties/new'
-        end
-    end
-
     get '/properties' do
-        if logged_in?
+      authenticated?
           @properties = Property.all
           erb :'properties/index'
-        else
-          redirect '/'
-        end
     end
 
     get '/properties/:id' do
-        @property = Property.find_by(id: params[:id])
-        if logged_in?
-            if @property.user == current_user
-                erb :'properties/show'
-            else
-                redirect '/properties'
-            end
-        else
-          redirect '/'
-        end
+      authenticated?
+      set_property
+      erb :'properties/show'
     end
 
     get '/properties/:id/edit' do
-      @property = Property.find(params[:id])
-      if logged_in?
-        if @property.user == current_user
-            erb :'/properties/edit'
-        else
-            redirect "/properties/#{current_user.id}"
-        end
-      else
-        redirect '/'
-      end
+      authenticated?
+      set_property
+      erb :'/properties/edit'
     end
 
     patch '/properties/:id' do
@@ -72,6 +55,15 @@ class PropertiesController < ApplicationController
         property.destroy
         flash[:message] = "Listing Deleted."
         redirect '/properties'
+    end
+
+    private
+
+    def set_property
+      @property = current_user.properties.find_by(id: params[:id])
+        if !@property
+          redirect '/properties'
+        end
     end
 
 end
