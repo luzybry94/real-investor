@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do
-      if params[:user][:username].empty? || params[:user][:password].empty?
-          flash[:error] = "Please fill in your username and password"
-          redirect '/login'
-      else
+      # if params[:user][:username].empty? || params[:user][:password].empty?
+      #     flash[:error] = "Please fill in your username and password"
+      #     redirect '/login'
+      # else
         user = User.find_by(username: params[:user][:username])
         if user && user.authenticate(params[:user][:password])
           session[:user_id] = user.id
@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
           flash[:error] = "Invalid Credentials"
           redirect '/login'
         end
-      end
     end
 
     get '/logout' do
