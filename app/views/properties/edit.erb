@@ -18,7 +18,7 @@
  <input type="number" id="sqft" name="property[sqft]" value="<%= @property.sqft %>">
  <br><br>
  <label for="rating">Rating 1-10:</label>
- <input type="number" id="rating" name="property[rating]" value="<%= @property.rating %>">
+ <input type="number" id="rating" name="property[rating]" min="1" max="10" value="<%= @property.rating %>">
  <br><br>
  <label for="notes">Notes:</label>
  <textarea id="notes" name="property[notes]" rows="4" cols="50"><%= @property.notes %></textarea>

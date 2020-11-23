@@ -17,11 +17,10 @@
  <input type="number" id="sqft" name="property[sqft]">
  <br><br>
  <label for="rating">Rating 1-10:</label>
- <input type="number" id="rating" name="property[rating]">
+ <input type="number" id="rating" name="property[rating]" min="1" max="10">
  <br><br>
  <label for="notes">Notes:</label>
  <textarea id="notes" name="property[notes]" rows="4" cols="50"></textarea>
- <input type="hidden" name="property[user_id]" value="<%= current_user.id %>">
  <br><br>
  <p>*Required</p>
  <br><br>
